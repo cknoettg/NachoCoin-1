@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=NachoCoin
+Comment=NachoCoin P2P Cryptocurrency
+Exec=nachocoin-qt %u
+Terminal=false
+Type=Application
+Icon=nachocoin128
+MimeType=x-scheme-handler/nachocoin;
+Categories=Office;Finance;
+Name[en_US]=nachocoin-qt.desktop
