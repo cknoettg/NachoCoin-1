@@ -42,49 +42,34 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000001e1a5a4257154c65b46fc732bfa637ba7a898525373ba32ec4aa79921dd"))
-    (10000, uint256("0x6a7dfe3ee870e413e56b54a921c77f242abcf6fe039e36e56bc7cfbc0eebc417"))
-    (40000, uint256("0xc0d02231636376020f1d5b0cd6aaf2c3f6cd35cdaeb9ea13029775bc086c6931"))
-    (70000, uint256("0x5da73371f3342d33838671f6a103d9b18f624850aeb05aa8df6712142d8b61c1"))
-    (100000, uint256("0xfff546c31075eda8d385041469cf4d10f711052df8e6c187671671c0de0f9efa"))
-    (130000, uint256("0x746c8382dc10cfcc351f5874fe6ad4aa0c250abdf7306266313b871222314697"))
-    (160000, uint256("0x5f8723d77076474ae2609c38941e1cda81aad014a234571012f94d3a05bd45e8"))
-    (190000, uint256("0x1351b8a3bf27c6da16ab4921224544e12966c3a17a5005973bd4f1fd15015e29"))
-    (220000, uint256("0x57f58118f2ee1b5e4e6e2d75bd0dd72540c492ac9245030745e162f5b66c8cf1"))
-    (250000, uint256("0xe67e9a1736a98828426b1735a898777de14cd4cb804579f44d92a33d33e223e5"))
-    (280000, uint256("0xacc7cab3ce4994046a48acd9221cfbff828920ef3a3c0060d6262a9589f8b4ad"))
-    (310000, uint256("0xa20cac78de0bde0a4bc72191b204e8e686e47508f7fcf9c84f327cd38578a7cb"))
-    (758000, uint256("0xc4f288c20bedaf6738d18097b4e656791c76e67402de7b44093d8fc0209547c2"))
-    (822270, uint256("0xacf4b4a270569d08ae889cae2ab4fafa68d5fb240a9fe030a2aa0978d9fdebb7"))
-    (892100, uint256("0x76dc229dc1691204673903d952ce4db2bfad70c780ac64ca81cadb23a8fdb80a"))
-    (947610, uint256("0xbb9dcd0fd9e8e96e1c17ef113e56514bbae1ef31ef22fd276091ca4cd546b0f2"))
-    (957455, uint256("0x84a4a6e739ec3fa25daae649229cd990c64d759c5f868a0de0ed957c41910b0b"))
-    (970411, uint256("0x09053f55fcaad249d883dd0fce99d82c2e0896941047ce51f1efeca87904a053"))
-    (1000350, uint256("0x62de318a9668baf536f87ce4e34c2ecf22d04ad2b29702dc76abeafb063b8ffa"));
+    (0, uint256("0x0000043ef16bc99ff111ad2553adc3c6cff860eafb03d3b4775bd126d68a076f"))
+    (60, uint256("0x0000459870335e00adf98e49e69b283cdc6e1b458c33776b50001e4e77fd291d"));
+   
+
 
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1588017726, // * UNIX timestamp of last checkpoint block
-    1000349,          // * total number of transactions between genesis and last checkpoint
+    1606888731, // * UNIX timestamp of last checkpoint block
+    60,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x001"));
+    boost::assign::map_list_of(0, uint256("0x000"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1740710,
+    1606888767,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x001"));
+    boost::assign::map_list_of(0, uint256("0x000"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1454124731,
+    1606888820,
     0,
     100};
 
@@ -95,11 +80,11 @@ public:
     {
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
-        pchMessageStart[0] = 0x52;
-        pchMessageStart[1] = 0xdb;
-        pchMessageStart[2] = 0x11;
-        pchMessageStart[3] = 0xab;
-        vAlertPubKey = ParseHex("045ad6f1551c2367f81c0ecb4d45d088298442887645a314dfcba3039401872473b0200e69d9679a0d7cc307fb9aaaacafb0cebc18050ce7c995fa19c6accc8415");
+        pchMessageStart[0] = 0x1a;
+        pchMessageStart[1] = 0xc5;
+        pchMessageStart[2] = 0x1e;
+        pchMessageStart[3] = 0x5b;
+        vAlertPubKey = ParseHex("0446afcbf4586d5991084b28f0ec9c076b738833929d0accaf0b396500470d8853c923878e59a848f21d5501b75ee46428cdccae348ad57d3ff75b20915739abee");
         nDefaultPort = 6942;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 1050000;
@@ -112,35 +97,36 @@ public:
         nTargetSpacing = 2 * 60;  // NachoCoin: 2 minute blocks during POW (block 1-200)
         nMaturity = 5; // 6 block maturity (+1 elsewhere)
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 5000000 * COIN; // 5 million max supply
-        nLastPOWBlock = 200;
+        nMaxMoneyOut = 50000000 * COIN; // 50 million max supply
+        nLastPOWBlock = 10000;
         nModifierUpdateBlock = 1; // we use the version 2 for NACHO
 
-        const char* pszTimestamp = "Bitcoin now uses as much energy as Ireland - businessgreen 21/05/2018";
+        const char* pszTimestamp = "NachoCoin is leading the future of crypto currency 1/12/2020";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 0 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04f5a8143f86ad8ac63791fbbdb8e0b91a8da88c8c693a95f6c2c13c063ea790f7960b8025a9047a7bc671d5cfe707a2dd2e13b86182e1064a0eea7bf863636363") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("049e05862723dab2bd1b6c609c3c88fb0e0b3ea915347be7cc3f7a3dc18d6c76b60061429bd7f7e85abb83e6b1c35e9643d841e55d9622ff4c95b37f314a1ed08a") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1526928414;
+        genesis.nTime = 1606888731;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 21561793;
+        genesis.nNonce = 22292698;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000001e1a5a4257154c65b46fc732bfa637ba7a898525373ba32ec4aa79921dd"));
-        assert(genesis.hashMerkleRoot == uint256("0xd611ad6808864e0e9bd331f3ffa2298c9e13a54d9fe59a99ccb3a75db374b7c9"));
+
+        assert(hashGenesisBlock == uint256("0x0000043ef16bc99ff111ad2553adc3c6cff860eafb03d3b4775bd126d68a076f"));
+        assert(genesis.hashMerkleRoot == uint256("0x9a6df8429e922281ba90436e137311a7b877d06c4c31045b338e27e0bf1791ad"));
 
         // NachoCoin addresses start with 'N'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 53);
-        // NachoCoin script addresses start with '3'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 6);
-        // NachoCoin private keys start with 'K'
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 46);
+        // NachoCoin script addresses start with '7'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 15);
+        // NachoCoin private keys start with 'C'
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 28);
         // NachoCoin BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // NachoCoin BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
@@ -149,7 +135,12 @@ public:
         // BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0xde).convert_to_container<std::vector<unsigned char> >();
 
-        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
+vSeeds.push_back(CDNSSeedData("nachcoin.tk", "nachocoin.tx"));
+
+        vFixedSeeds.clear();
+        vSeeds.clear();
+
+      //  convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fMiningRequiresPeers = true;
         fAllowMinDifficultyBlocks = false;
@@ -161,9 +152,9 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04cc17389379a0e323f53ea504d38cd71f43dc22f597805fed33a51b05ced1a3ae0db84089985f351b3737721736a82f58c8bd529f79c8ffe57e922bda792146ab";
-        strMasternodePoolDummyAddress = "NSJVWUkt6HtSCY2SaJ2akeyJUg8bg1hW3S";
-        nStartMasternodePayments = 4070908800;
+        strSporkKey = "04bb12ccec479c90e0b525f9b40446a60cdd6e1e17185acb5ca5bc0b62d15247aa0cf797ee8fd60ff9fc2f7920cc8b9070558b3e7a643d502ed886e68f7e1a578e";
+        strMasternodePoolDummyAddress = "NSkubVnAD19dvYthLHAoE3UomSCHBa5iTQ";
+        nStartMasternodePayments = 1606888731;
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
@@ -189,7 +180,7 @@ public:
         pchMessageStart[1] = 0x2d;
         pchMessageStart[2] = 0x32;
         pchMessageStart[3] = 0xbc;
-        vAlertPubKey = ParseHex("041b2b4c86273359acac3522471911ed2b303eaab65e8a1de01c06e89f2eab1e55234a4b504f3ce20c6f661f007d0ca15623b4358d9855c7c8ba793a24fa315e22");
+        vAlertPubKey = ParseHex("0446afcbf4586d5991084b28f0ec9c076b738833929d0accaf0b396500470d8853c923878e59a848f21d5501b75ee46428cdccae348ad57d3ff75b20915739abee");
         nDefaultPort = 16942;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
@@ -204,7 +195,7 @@ public:
         nMaxMoneyOut = 21000000 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1516926684;
+        genesis.nTime = 1606888767;
         genesis.nNonce = 21256609;
 
         hashGenesisBlock = genesis.GetHash();
@@ -212,6 +203,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+
 
         // Testnet NachoCoin addresses start with 'g'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 98);
@@ -236,8 +228,8 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "04abb5e65280dda6a113fadfb9877f9c399532245fe1acb61de293ab298034d5084277fab3768774a3b68cbbe5021cc5049ec8c9997a13f64da1afa0bcfb156db1";
-        strMasternodePoolDummyAddress = "gbJ4Qad4xc77PpLzMx6rUegAs6aUPWkcUq";
+        strSporkKey = "04bb12ccec479c90e0b525f9b40446a60cdd6e1e17185acb5ca5bc0b62d15247aa0cf797ee8fd60ff9fc2f7920cc8b9070558b3e7a643d502ed886e68f7e1a578e";
+        strMasternodePoolDummyAddress = "NSkubVnAD19dvYthLHAoE3UomSCHBa5iTQ";
         nStartMasternodePayments = genesis.nTime + 86400; // 24 hours after genesis
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
@@ -272,7 +264,7 @@ public:
         nTargetTimespan = 24 * 60 * 60; // NachoCoin: 1 day
         nTargetSpacing = 2 * 60;        // NachoCoin: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1516926684;
+        genesis.nTime = 1606888820;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 20542300;
 
