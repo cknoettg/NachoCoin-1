@@ -1,7 +1,7 @@
 # NachoCoin
 
 
-NocNoc.conf file info
+nachocoin.conf file info
 Run the wallet once then close it and go to `%APPDATA%\roaming\nachocoin` (On windows). Open a text editor like (notepad++), Create a file called `nachicoin.conf` if one does not exist if it exists then paste this in to the conf file,
 ```
 rpcuser=rpc_nachocoin
